@@ -299,6 +299,31 @@ class RestPurchaseRequest extends RestAbstractRequest
     }
 
     /**
+     * Get seconds active.
+     *
+     * The number of seconds the payment link will be active for.
+     *
+     * @return int|null
+     */
+    public function getSecondsActive()
+    {
+        return $this->getParameter('seconds_active');
+    }
+
+    /**
+     * Set seconds active.
+     *
+     * The number of seconds the payment link will be active for.
+     *
+     * @param $value
+     * @return \Omnipay\Common\Message\AbstractRequest
+     */
+    public function setSecondsActive($value)
+    {
+        return $this->setParameter('seconds_active', $value);
+    }
+
+    /**
      * Get close window.
      *
      * Set to true if you will display the MultiSafepay payment
@@ -532,6 +557,7 @@ class RestPurchaseRequest extends RestAbstractRequest
             'amount'           => $this->getAmountInteger(),
             'currency'         => $this->getCurrency(),
             'days_active'      => $this->getDaysActive(),
+            'seconds_active'   => $this->getSecondsActive(),
             'description'      => $this->getDescription(),
             'gateway'          => $this->getGateway(),
             'google_analytics' => $this->getGoogleAnalyticsCode(),
